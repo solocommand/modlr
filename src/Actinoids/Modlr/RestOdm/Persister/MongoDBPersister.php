@@ -51,6 +51,8 @@ class MongoDBPersister implements PersisterInterface
 
     /**
      * {@inheritDoc}
+     * @todo    Find from database will run a query for every model that has an inverse relationship.
+     * @todo    This could result in many queries: think if an all of 50 models is called, each model with 2 inverse rels: 100 queries
      */
     public function inverse(EntityMetadata $owner, EntityMetadata $rel, Store $store, array $identifiers, $inverseField)
     {
